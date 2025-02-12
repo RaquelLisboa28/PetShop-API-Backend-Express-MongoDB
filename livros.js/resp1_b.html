@@ -1,0 +1,23 @@
+Elaborar um programa para uma pizzaria, o qual leia o valor total de
+uma conta e quantos clientes vão pagá-la. Calcule e informe o valor a ser
+pago por cliente.
+Exemplo:
+Valor da Conta R$: 90.00
+Número de Clientes: 3
+Valor por cliente R$: 30.00
+
+<script>
+let conta = parseFloat (prompt("O valor da 1° pizza é:" ));
+let conta1 = parseFloat (prompt("O valor da 2° pizza é:" ));
+let quantidadeClientes = parseInt(prompt("Quantidade de clientes que vão pagar é:" ));
+let totalDoValor = conta + conta1;
+let valorPorCliente = totalDoValor / quantidadeClientes;
+alert("Valor da conta R$: " + totalDoValor.toFixed(2) + 
+      "\nValor por cliente R$: " + valorPorCliente.toFixed(2));
+</script>
+ 
+/* Utilizei parseFloat para converter os valores das pizzas de strings para números decimais.
+
+Utilizei parseInt para converter a quantidade de clientes para um número inteiro.
+
+Usei toFixed(2) para formatar a saída com duas casas decimais, o que é útil para valores monetários.*/

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Programa Olá Você!</h1>
+    <p> Nome: <input type="text" id="name">
+        <input type="button" value="Mostrar">
+    </p>
+    <p id="resposta"></p>
+    <script>
+        function mostrarOla() {
+var nome = document.getElementById("nome").value;
+document.getElementById("resposta").textContent = "Olá " + nome;
+}
+    </script>
+
+</body>
+</html>
+//• Objeto - representa uma instância de uma classe.
+//• Método - representa uma instrução ou um conjunto de instruções que
+//executam uma tarefa.
+//• Propriedade - representa uma característica (atributo) de um objeto.
