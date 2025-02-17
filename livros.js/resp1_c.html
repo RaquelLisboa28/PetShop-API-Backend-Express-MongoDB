@@ -1,3 +1,14 @@
 /* Elaborar um programa para uma loja, o qual leia o preço de um produto e
 informe as opções de pagamento da loja. Calcule e informe o valor para
 pagamento à vista com 10% de desconto e o valor em 3x. */
+<script>
+const preco = prompt("Qual é o preço do produto?")
+const price = Number(preco)
+const installment = price / 3
+const oneTimePrice = price - (33/100 * price)
+
+
+alert("O preço a vista é " + oneTimePrice + " e em 3x a parcela fica em: " + installment)
+
+</script>
+

@@ -2,8 +2,9 @@
 vizinhos, ou seja, o número anterior e posterior*/
  <script>
  let number1 =(prompt("Digite um numero:" ));
- let vizinho1 = number1 - 1;
- let vizinho2 = ++ number1 ;
+ const numero1 = Number(number1);
+ let vizinho1 = numero1 - 1;
+ let vizinho2 = numero1 + 1 ;
  let vizinhos = (vizinho1 +" " + "e" + " " + vizinho2);
  alert("Os vizinhos do numero são: " + vizinhos);
 </script>
