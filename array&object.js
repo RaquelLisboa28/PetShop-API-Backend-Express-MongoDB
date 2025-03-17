@@ -1,25 +1,33 @@
 /* Array: Um array é uma lista ordenada de elementos, onde cada elemento pode ser acessado através de um índice 
  numérico.  Dentro de colchetes []. Conjunto de dados agrupados entre colchetes[].*/
-let frutas = ["Maçã", "Banana", "Laranja"];
-/*splice: array.splice(inicio, quantidade, item1, item2, ...);
+
+ let frutas = ["Maçã", "Banana", "Laranja"];
+
+/*splice: array.splice(inicio, quantidade, item1, item2, ...); REMOVE E ADICIONA ELEMENTO NO LUGAR CASO QUEIRA ADD
 inicio: O índice onde começar a alteração.
 quantidade: O número de elementos a serem removidos a partir do inicio.
 item1, item2, ... (opcional): Os elementos a serem adicionados no lugar dos elementos removidos. */
+
 frutas.splice(1, 1); // Remove 1 elemento a partir do índice 1 ("Banana")
 console.log(frutas); // ["Maçã", "Laranja"]
-frutas.splice(1, 0, "Morango", "Abacaxi"); // Adiciona "Morango" e "Abacaxi" a partir do índice 1, sem remover nenhum elemento
+
+frutas.splice(1, 0, "Morango", "Abacaxi"); //Adiciona "Morango" e "Abacaxi" a partir do índice 1, sem remover nenhum elemento
 console.log(frutas); // ["Maçã", "Morango", "Abacaxi", "Banana", "Laranja"]
+
 frutas.splice(2, 1, "Uva"); // Remove 1 elemento a partir do índice 2 ("Abacaxi") e adiciona "Uva" no lugar
 console.log(frutas); // ["Maçã", "Morango", "Uva", "Banana", "Laranja"]
 
 /*concat:é usado para unir dois ou mais arrays. Esse método não altera os arrays existentes, mas retorna um novo
 array que contém todos os elementos dos arrays unidos.*/
+
 let outrasFrutas = ["Morango", "Abacaxi"];
 let todasAsFrutas = frutas.concat(outrasFrutas);
 console.log(todasAsFrutas); // ["Maçã", "Banana", "Laranja", "Morango", "Abacaxi"]
+
 let frutasExoticas = ["Kiwi", "Manga"];
 let todasAsFrutas1= frutas.concat(outrasFrutas, frutasExoticas);
 console.log(todasAsFrutas); // ["Maçã", "Banana", "Laranja", "Morango", "Abacaxi", "Kiwi", "Manga"]
+
 let maisFrutas = frutas.concat("Melancia", "Pêssego");
 console.log(maisFrutas); // ["Maçã", "Banana", "Laranja", "Melancia", "Pêssego"]
 
@@ -50,7 +58,7 @@ console.log(frutas);
 //unshift(): Adiciona um ou mais elementos ao início do array.
 frutas.unshift("Morango");
 console.log(frutas); 
-
+ 
 //reverse(): Inverte a ordem dos elementos no array.
 frutas.reverse();
 console.log(frutas); 
@@ -64,6 +72,14 @@ frutas.find(function(fruta) {
   return fruta === "Banana";
 });
 console.log(frutas); 
+
+// Propriedade Length: A propriedade length em um array é usada para retornar o número total de elementos presentes 
+// no array. É muito útil quando você precisa saber a quantidade de itens armazenados em um array.
+// Usando a propriedade length para obter o número de elementos no array
+let quantidadeDeFrutas = frutas.length;
+
+console.log(`O array frutas possui ${quantidadeDeFrutas} elementos.`);
+
 
 /*filter: cria um novo array com todos os elementos que passam no teste implementado pela função fornecida.
 function(valor, indice, array) - Usado para filtrar o array. */
@@ -116,7 +132,7 @@ const apenasNomeDasPessoas = people.map ( obj => obj.nome);
 console.log(apenasNomeDasPessoas);
 
 /*Reduce: aplica uma função a um acumulador e a cada valor do array (da esquerda para a direita) para 
- reduzir o array a um único valor. function (acumulador, valot, indice, array) - ele soma todos os valores do array
+ reduzir o array a um único valor. function (acumulador, valor, indice, array) - ele soma todos os valores do array
  para reduzir a um valor total. */
 let soma = numeros.reduce(function(acumulador, valorAtual) {
   return acumulador + valorAtual;
@@ -165,6 +181,19 @@ let todosSaoMenoresQueCinco = numeros.every(function(numero) {
 });
 console.log(todosSaoMenoresQueCinco);
 
+//Array Bidimensionais : Coleções de itens organizados como uma matriz de linhas e colunas. É Array de Array.
+const clientes = [["Manuel", 24, true], ["Edval", 24, false], ["Raphael", 19, true]];
+console.table(clientes);
+console.log(clientes);
+
+
+
+
+
+
+
+
+
 
 //Object: Um objeto é uma coleção de propriedades, onde cada propriedade é um par de chave-valor. {}
 let pessoa = {
@@ -179,7 +208,7 @@ const pessoa2 = {
   profissao: "gerente",
   nomePai: "Cristiano"
 };
-
+ 
 const fichario = [ 
   pessoa, 
   pessoa2,
@@ -267,135 +296,68 @@ let carros = [
     return b.ano - a.ano;
   });
   console.log(carros);
-  
 
 
+const car = {
+  marca: "Toyota",
+  modelo: "Corolla",
+  ano: 2025
+}
 
- /*Os Getters são usados para obter o valor de uma propriedade. Eles são definidos usando a palavra-chave get. */
-  
-  class Pessoa {
-    constructor(nome) {
-      this._nome = nome;
-    }
-  
-    get nome() {
-      return this._nome;
-    }
+console.log(car.marca);
+console.log(car.modelo);
+console.log(car.ano);
+
+
+const person = {
+  nome: "Raquel",
+  idade: 23,
+  apresentar() {
+      return `Olá, meu é ${this.nome} e tenho ${this.idade} anos.`
   }
-  
-  const pessoa = new Pessoa("João");
-  console.log(pessoa.nome); // Saída: João
+}
 
-  /*Aqui, a propriedade nome é acessada como se fosse uma propriedade regular, mas na verdade está chamando a função 
-  get nome(). *
+console.log(person.apresentar()) 
 
-  Os Setters são usados para definir o valor de uma propriedade. Eles são definidos usando a palavra-chave set. */
-  
-  class Pessoa {
-    constructor(nome) {
-      this._nome = nome;
-    }
-  
-    get nome() {
-      return this._nome;
-    }
-  
-    set nome(novoNome) {
-      if (novoNome.length >= 3) {
-        this._nome = novoNome;
-      } else {
-        console.log("Nome deve ter pelo menos 3 caracteres.");
-      }
-    }
-  }
-  
-  const pessoa = new Pessoa("João");
-  pessoa.nome = "Ana"; // Definindo um novo valor para nome
-  console.log(pessoa.nome); // Saída: Ana
-  pessoa.nome = "Al"; // Saída: Nome deve ter pelo menos 3 caracteres.
-  
- /* No exemplo acima, a função set nome(novoNome) permite definir um novo valor para a propriedade nome, mas com uma validação: o nome deve ter pelo menos 3 caracteres.
-  Usando Getters e Setters de Forma Correta
-  Validação e Lógica: Use setters para adicionar validações e lógica antes de alterar uma propriedade. Assim, você 
-  mantém a integridade dos dados.
-  Encapsulamento: Use getters e setters para encapsular propriedades e evitar acesso direto a elas. Isso torna o 
-  código mais seguro e modular.
-  Interface Consistente: Getters e setters permitem que você mude a implementação interna sem alterar a interface 
-  externa do objeto. Os usuários do objeto não precisam saber se uma propriedade é acessada diretamente ou através 
-  de um getter/setter.*/
+const student = {
+  name: "Pablo",
+  course: "Programador",
+  };
 
+  console.log(student);
+//adicionando uma propriedade
+student.nota = 9.5;
+//removendo uma propriedade
+delete student.course;
+console.log(student);
 
-
-/*Métodos são funções associadas a um objeto. Eles permitem que os objetos realizem ações e manipulem seus dados.
-Existem duas formas principais de definir métodos em objetos: usando a sintaxe literal de objeto e usando classes.
-Com a sintaxe literal de objeto, você pode definir métodos diretamente dentro do objeto.*/
-
-const cachorro = {
-  nome: "Rex",
-  idade: 5,
-  latir: function() {
-    console.log("Au au!");
-  }
+// Resolução
+const produto = {
+  nome: "Teclado Mecânico",
+  preco: 250,
+  estoque: 15
 };
 
-cachorro.latir(); // Saída: Au au!
-//Aqui, latir é um método do objeto cachorro.
+for (let chave in produto) {
+  console.log(`${chave}: ${produto}`)
+    }
 
 
-//Com Classes, você pode definir métodos dentro da definição da classe.
+    // Função construtora
+function car1(marca, modelo, ano) {
+  this.marca = marca;
+  this.modelo = modelo;
+  this.ano = ano;
 
-class Gato {
-  constructor(nome, idade) {
-    this.nome = nome;
-    this.idade = idade;
-  }
-
-  miar() {
-    console.log("Miau!");
-  }
+  this.detalhes = function() {
+      return `Carro: ${this.marca} ${this.modelo}, Ano: ${this.ano}`;
+  };
 }
 
-const gato = new Gato("Whiskers", 3);
-gato.miar(); // Saída: Miau!
-//Aqui, miar é um método da classe Gato.
+// Criando dois objetos diferentes usando a função construtora
+const carro1 = new car1("Toyota", "Corolla", 2022);
+const carro2 = new car1("Honda", "Civic", 2023);
 
-/*Usando Métodos de Forma Correta
-Modularidade: Separe o código em métodos pequenos e focados, cada um realizando uma única tarefa. Isso facilita a 
-manutenção e reutilização do código.
-Nomes Descritivos: Dê nomes claros e descritivos aos métodos para que seu propósito seja facilmente compreendido. 
-Por exemplo, calcularIdade é mais descritivo que calcular.
-Parâmetros e Retorno: Use parâmetros para passar informações aos métodos e retorne valores quando necessário. Isso 
-permite que os métodos sejam mais flexíveis e reutilizáveis.
-Encapsulamento: Use métodos para encapsular a lógica do objeto, evitando o acesso direto às propriedades. Isso ajuda 
-a proteger os dados internos e manter a consistência do objeto.*/
-
-class Carro {
-  constructor(modelo, ano) {
-    this.modelo = modelo;
-    this.ano = ano;
-    this._velocidade = 0; // Propriedade privada
-  }
-
-  acelerar() {
-    this._velocidade += 10;
-    console.log(`A velocidade atual é ${this._velocidade} km/h`);
-  }
-
-  frear() {
-    this._velocidade -= 10;
-    console.log(`A velocidade atual é ${this._velocidade} km/h`);
-  }
-
-  get velocidade() {
-    return this._velocidade;
-  }
-}
-
-const carro = new Carro("Fusca", 1975);
-carro.acelerar(); // Saída: A velocidade atual é 10 km/h
-carro.frear();    // Saída: A velocidade atual é 0 km/h
-console.log(carro.velocidade); // Saída: 0
-/*Neste exemplo, os métodos acelerar e frear modificam a propriedade privada _velocidade, enquanto o método getter
- velocidade permite acessar seu valor.*/
-
- 
+// Exibindo no console
+console.log(carro1.detalhes()); // "Carro: Toyota Corolla, Ano: 2022"
+console.log(carro2.detalhes()); // "Carro: Honda Civic, Ano: 2023"

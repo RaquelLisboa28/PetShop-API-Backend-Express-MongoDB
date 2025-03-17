@@ -5,38 +5,44 @@
  Se achar, exibe as cidades. Se não achar, exibir, “Estado não encontrado"
  Estudar as teclas de atalho mais utilizadas no VSCode 
 */
-
-//1 pegar o nome de todas as cidades do estados
  
 
 const estadosCidades = require("./estados_cidades.json")
 
+/*function filterByState(code){
+  const estado = estadosCidades.estados.find(estado => estado.sigla == code);
+  if (estado != undefined){
+    console.log(estado.cidades);
+    console.log(estado.cidades.slice(0,5));
+  } else {
+    console.log("Estado não encontrado")
+  }
+}*/
 
-  const cidadeRJ = estadosCidades.estados[18]
-  //console.log(cidadeRJ);
+/*function mostrarNomeDoEstado(cidade) {
+  const estado = estadosCidades.estados.find(estado => {
+    const cidadeEncontrada = estado.cidades.find(nomeCidade => nomeCidade == cidade )
+    return cidadeEncontrada != undefined
+  })
+  console.log(estado.nome)
+}*/
 
-  const cidadeSC = estadosCidades.estados[23]
-  //console.log(cidadeSC);
+//  mostrarNomeDoEstado("Dois Riachos")
+//  mostrarNomeDoEstado("Joinville")
+//  mostrarNomeDoEstado("Plano Piloto")
+//  mostrarNomeDoEstado("Pancas")
+//  mostrarNomeDoEstado("Mendes")
 
-  const cidadeBA = estadosCidades.estados[4]
-  //console.log(cidadeBA);
+//filterByState("ABC")
+//SP, RS, RN, AP
 
-  const cidadePR = estadosCidades.estados[17]
-  //console.log(cidadePR);
+function encontrarEstadosPorSigla (sigla) {
+  const estadoEncontrado = estadosCidades.estados.find (estado => estado.sigla === sigla);
+  return estadoEncontrado ? estadoEncontrado.cidades: "Estado não encontrado.";
 
-  const osCinco = cidadeRJ.cidades.slice(0,5)
-  //console.log(osCinco);
+}
 
-  const osCinco1 = cidadeSC.cidades.slice(0,5)
- // console.log(osCinco1);
-
-  const osCinco2 = cidadeBA.cidades.slice(0,5)
- // console.log(osCinco2);
-
-  const osCinco3 = cidadePR.cidades.slice(0,5)
- // console.log(osCinco3);
-
- const cidadeEncontrada = dados.estados.find(item => item.cidades === "Dois Riachos");
- console.log(cidadeEncontrada);
-
- 
+console.log(encontrarEstadosPorSigla("SP"));
+console.log(encontrarEstadosPorSigla("RS"));
+console.log(encontrarEstadosPorSigla("RN"));
+console.log(encontrarEstadosPorSigla("AP"));
